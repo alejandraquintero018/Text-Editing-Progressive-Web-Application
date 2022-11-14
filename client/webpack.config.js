@@ -18,12 +18,37 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        title: 'Text-Editor'
+      }),
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js',
+      }),
+      new WebpackPwaManifest({
+        // TODO: Create a manifest.json:
+        fingerprints: false,
+        inject: true,
+        name: 'Text-Editor',
+        short_name: 'Text-Editor',
+        description: 'Allows you to edit text on your laptop',
+        background_color: '#008B8B',
+        theme_color: '#00008B',
+        start_url: "./",
+        publicPath: "./",
+        icons: [
+          {
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
+            destination: path.join('assets', 'icons')
+          },
+        ],
+      }),
     ],
-
     module: {
       rules: [
-        
+
       ],
     },
   };
