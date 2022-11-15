@@ -34,8 +34,8 @@ module.exports = () => {
         description: 'Allows you to edit text on your laptop',
         background_color: '#008B8B',
         theme_color: '#00008B',
-        start_url: "./",
-        publicPath: "./",
+        start_url: "/",
+        publicPath: "/",
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
